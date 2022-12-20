@@ -1,5 +1,5 @@
 while True:
-  op = int(input("Elija una acción:\n1.Actualización de datos\n2.Visualización de datos\nPara salir precione cualquier otro número\n"))
+  op = int(input("Elija una acción:\n1.Actualización de datos\n2.Visualización de datos\nPara salir presione cualquier otro número\n"))
   if op == 1:
     ticker = input("ingrese el nombre de la Acción:")
     fecha_ini = input("ingrese la fecha de inicio:")

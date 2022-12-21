@@ -27,6 +27,7 @@ con = sqlite3.connect("dbpython")
 # Escribe los datos del nuevo DataFrame en una nueva tabla en SQLite
 df.to_sql(f"{accion}", con, if_exists="replace")
 #con.close()
+###ver la opcion de hacer try: except
 
 con = sqlite3.connect("dbpython")
 cursor = con.cursor()

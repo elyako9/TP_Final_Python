@@ -12,24 +12,22 @@ def actualizaracciones():
     api_url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/{fechainicio}/{fechafin}?adjusted=true&sort=asc&limit=120&apiKey={api_key}'
     r = requests.get(api_url)
     data = r.json()
-    #return data
 
 
-    #def copiaradb(data):
+    #crear lista de fechas
     dates = []
     for i in range(len(data['results'])):
         epoch_time = data['results'][i]['t']  
         the_datetime = str(datetime.datetime.fromtimestamp( epoch_time/1000 ))
-        #print(the_datetime[:10])
         dates.append(the_datetime[:10])
 
 
-    #resultados = datafija['results']
+    #crear un dataframe
     df = pd.DataFrame(data['results'])
-    columnas = ['Volumen','Peso del volumen','Precio apertura','Precio cierre','High','Low','Timestamp','N transacciones']
+    columnas = ['Volumen','Peso del volumen','PrecioApertura','PrecioCierre','High','Low','Timestamp','N transacciones']
     df.columns=columnas
     df.insert(0, "Fecha", dates)
-    #print(df)
+
 
     accion = data['ticker']
     try:
@@ -39,5 +37,5 @@ def actualizaracciones():
         con.close()
     except Exception as ex:
         print(ex)
-        
+
     return None

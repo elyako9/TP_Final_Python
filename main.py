@@ -1,5 +1,6 @@
 from getdata import actualizaracciones
 from resudata import resumen
+from grafidata import grafica
 
 while True: ##while para el programa se ejecute 
   op = int(input("Elija una acción:\n1.Actualización de datos\n2.Visualización de datos\nPara salir presione cualquier otro número\n"))
@@ -16,7 +17,8 @@ while True: ##while para el programa se ejecute
       resumen()
 
     elif visu == 2:
-      print("disparar funcion 2")      
+      print("Graficando")   
+      grafica()   
   
   else:
     break
